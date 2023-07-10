@@ -3,39 +3,56 @@ using CursoUdemy.Domain;
 
 StreamerDbContext dbContext = new();
 
-Streamer streamer = new(){
-    Nombre = "Amazon Prime",
-    Url = "https://www.primevideo.com"
-};
+//await addNewRecords();
 
-dbContext!.Streamers!.Add(streamer);
+QueryStreaming();
 
-await dbContext.SaveChangesAsync();
+void QueryStreaming()
+{
+    var streamers = dbContext.Streamers.ToList();
 
-var movies = new List<Video>
+    foreach(var streamer in streamers)
+    {
+        Console.WriteLine($"{streamer.Id} - {streamer.Nombre}");
+    }
+}
+
+async Task addNewRecords()
+{
+    Streamer streamer = new()
+    {
+        Nombre = "Disney +",
+        Url = "https://www.disneyplus.com"
+    };
+
+    dbContext!.Streamers!.Add(streamer);
+
+    await dbContext.SaveChangesAsync();
+
+    var movies = new List<Video>
 {
     new Video
     {
-     Nombre = "Mad Max",
-     StreamerId = 1
+     Nombre = "Lilo y Stitch",
+     StreamerId = streamer.Id
     },
     new Video
     {
-        Nombre = "El señor de los anillos",
+        Nombre = "101 Dalmatas",
         StreamerId = streamer.Id
     },
     new Video
     {
-        Nombre = "Crepusculo",
+        Nombre = "El jorobado caido",
         StreamerId = streamer.Id
     },
-    new Video { 
-        Nombre="Manuelita",
+    new Video {
+        Nombre="Pocahontas",
         StreamerId = streamer.Id
     }
 };
 
-await dbContext.AddRangeAsync(movies);
+    await dbContext.AddRangeAsync(movies);
 
-await dbContext.SaveChangesAsync();
-
+    await dbContext.SaveChangesAsync();
+}
