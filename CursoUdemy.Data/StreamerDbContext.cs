@@ -8,7 +8,7 @@ namespace CursoUdemy.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            base.OnConfiguring(optionsBuilder.UseSqlServer(@"Data Source=localhost/sqlexpress; Initial Catalog= Streamer; Integrated Security = True");
+            optionsBuilder.UseSqlServer(@"Data Source=localhost\sqlexpress;Initial Catalog=Streamer;Integrated Security=True; TrustServerCertificate=True");
         }
         public DbSet <Streamer> Streamers { get; set; }
 
