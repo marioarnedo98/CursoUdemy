@@ -10,12 +10,26 @@ StreamerDbContext dbContext = new();
 
 //await QueryFilter();
 
-await QueryMethods();
+//await QueryMethods();
+
+await QueryLinq();
 
 Console.WriteLine("Presione cualquier tecla para terminar el programa");
 
 Console.ReadKey();
 
+async Task QueryLinq()
+{
+    Console.WriteLine("Ingrese");
+    var streamerNombre = Console.ReadLine();
+
+    var streamers = await (from i in dbContext.Streamers where EF.Functions.Like(i.Nombre, $"%{streamerNombre}%") select i).ToListAsync();
+
+    foreach (var streamer in streamers)
+    {
+        Console.WriteLine($"{streamer.Id} - {streamer.Nombre}");
+    }
+}
 
 async Task QueryMethods()
     {
