@@ -8,18 +8,38 @@ StreamerDbContext dbContext = new();
 
 //QueryStreaming();
 
-await QueryFilter();
+//await QueryFilter();
+
+await QueryMethods();
 
 Console.WriteLine("Presione cualquier tecla para terminar el programa");
 
 Console.ReadKey();
+
+
+async Task QueryMethods()
+    {
+
+    var streamer = dbContext.Streamers;
+
+    var streamer1 = await streamer.Where(y => y.Nombre!.Contains("a")).FirstAsync();
+    
+    var streamer2 = await streamer.Where(y => y.Nombre!.Contains("a")).FirstOrDefaultAsync();
+
+    var streamer3 = await streamer.FirstOrDefaultAsync(y => y.Nombre!.Contains("a"));
+
+    var streamer4 = await streamer.Where(y => y.Id == 1).SingleAsync();
+    var streamer5 = await streamer.Where(y => y.Id == 1).SingleOrDefaultAsync();
+
+    var streamer6 = await streamer.FindAsync(1);
+}
 
 async Task QueryFilter()
 {
     Console.WriteLine($"Ingrese el texto:");
     var streamingName = Console.ReadLine();
 
-    var streamers = await dbContext.Streamers.Where(x => x.Nombre.Equals(streamingName)).ToListAsync();
+    var streamers = await dbContext.Streamers.Where(x => x.Nombre!.Equals(streamingName)).ToListAsync();
 
     foreach (var streamer in streamers)
     {
