@@ -22,11 +22,32 @@ StreamerDbContext dbContext = new();
 
 //await AddNewActorWithVideo();
 
-await addNewDirectorWithVideo();
+//await addNewDirectorWithVideo();
+
+await MultipleEntitiesQuery();
 
 Console.WriteLine("Presione cualquier tecla para terminar el programa");
 
 Console.ReadKey();
+
+async Task MultipleEntitiesQuery()
+{
+    //var videoWithActores = await dbContext.Videos.Include(q => q.Actores).FirstOrDefaultAsync(q => q.Id == 1);
+
+    var videoWithDirector = await dbContext.Videos
+        .Where(video => video.Director != null)
+        .Include(x => x.Director)
+        .Select(q => new {
+            Director_Nombre_Completo = $"{q.Director.Nombre} {q.Director.Apellido}",
+            Movie = q.Nombre
+         }
+        ).ToListAsync();
+
+    foreach ( var video in videoWithDirector)
+    {
+        Console.WriteLine($"{video.Movie} - {video.Director_Nombre_Completo}");
+    }
+}
 
 async Task addNewDirectorWithVideo()
 {
