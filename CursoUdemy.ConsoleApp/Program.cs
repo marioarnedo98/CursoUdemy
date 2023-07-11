@@ -12,11 +12,25 @@ StreamerDbContext dbContext = new();
 
 //await QueryMethods();
 
-await QueryLinq();
+//await QueryLinq();
+
+await TrackingAndNotTracking();
 
 Console.WriteLine("Presione cualquier tecla para terminar el programa");
 
 Console.ReadKey();
+
+async Task TrackingAndNotTracking()
+{
+    var streamerWithTracking = await dbContext.Streamers.FirstOrDefaultAsync(x => x.Id == 1);
+    //Usando NO Tracking significa que se volatiliza cuando termina la query, no se podra updatear, como pasa mas abajo
+    var streamerWithNoTracking = await dbContext.Streamers.AsNoTracking().FirstOrDefaultAsync(x => x.Id == 2);
+
+    streamerWithTracking.Nombre = "Netflix Super";
+    streamerWithNoTracking.Nombre = "Amazon Plus";
+
+    await dbContext.SaveChangesAsync();
+}
 
 async Task QueryLinq()
 {
