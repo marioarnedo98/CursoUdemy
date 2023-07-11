@@ -1,11 +1,39 @@
 ﻿using CursoUdemy.Data;
 using CursoUdemy.Domain;
+using Microsoft.EntityFrameworkCore;
 
 StreamerDbContext dbContext = new();
 
 //await addNewRecords();
 
-QueryStreaming();
+//QueryStreaming();
+
+await QueryFilter();
+
+Console.WriteLine("Presione cualquier tecla para terminar el programa");
+
+Console.ReadKey();
+
+async Task QueryFilter()
+{
+    Console.WriteLine($"Ingrese el texto:");
+    var streamingName = Console.ReadLine();
+
+    var streamers = await dbContext.Streamers.Where(x => x.Nombre.Equals(streamingName)).ToListAsync();
+
+    foreach (var streamer in streamers)
+    {
+        Console.WriteLine($"{ streamer.Id} - {streamer.Nombre}");
+    }
+
+    //var StreamerPartialResults = await dbContext.Streamers.Where(x => x.Nombre.Contains(streamingName)).ToListAsync();
+
+    var StreamerPartialResults = await dbContext.Streamers.Where(x => EF.Functions.Like(x.Nombre,$"%{streamingName}%" )).ToListAsync();
+
+    foreach (var streamer in StreamerPartialResults) { Console.WriteLine($"{streamer.Nombre} - {streamer.Id}"); }
+
+}
+
 
 void QueryStreaming()
 {
