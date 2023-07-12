@@ -8,6 +8,7 @@ namespace CursoUdemy.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            //Nueva Rama, nueva BDO
             optionsBuilder.UseSqlServer(@"Data Source=localhost\sqlexpress;Initial Catalog=Streamer;Integrated Security=True; TrustServerCertificate=True")
                 .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, Microsoft.Extensions.Logging.LogLevel.Information)
                 .EnableSensitiveDataLogging();
