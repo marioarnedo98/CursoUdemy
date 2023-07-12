@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# Ocultar BDO
+CursoUdemy.Data/StreamerDbContext.cs
+/CursoUdemy.Data/CursoUdemy.Data.csproj
