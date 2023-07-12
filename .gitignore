@@ -365,3 +365,4 @@ FodyWeavers.xsd
 # Ocultar BDO
 CursoUdemy.Data/StreamerDbContext.cs
 /CursoUdemy.Data/CursoUdemy.Data.csproj
+/CursoUdemy.Data/StreamerDbContext.cs
