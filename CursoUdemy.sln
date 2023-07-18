@@ -3,11 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoUdemy.ConsoleApp", "CursoUdemy.ConsoleApp\CursoUdemy.ConsoleApp.csproj", "{F40A764E-6293-4D78-ACB8-98008E743771}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoUdemy.Data", "CursoUdemy.Data\CursoUdemy.Data.csproj", "{47478F66-8016-43BE-8B07-1CA73887FF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoUdemy.Data", "CursoUdemy.Data\CursoUdemy.Data.csproj", "{47478F66-8016-43BE-8B07-1CA73887FF28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoUdemy.Domain", "CursoUdemy.Domain\CursoUdemy.Domain.csproj", "{29162515-A0DD-448F-AA1B-2955ADD6024D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoUdemy.Domain", "CursoUdemy.Domain\CursoUdemy.Domain.csproj", "{29162515-A0DD-448F-AA1B-2955ADD6024D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6A0EAD87-8F57-48E9-88B0-7A6DFD0610F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{947FB55C-1CAB-43CA-923E-1BB29D0A770C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{82C38B83-E999-42CC-A318-18BE2EF2B344}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{3F5E1E81-E4F5-4401-B9F6-07B69C35F379}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4E1C6B56-7B05-448C-92B3-5A6DCF0CAA75}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{84766511-887A-481D-950E-A04526C055BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F40A764E-6293-4D78-ACB8-98008E743771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F40A764E-6293-4D78-ACB8-98008E743771}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F40A764E-6293-4D78-ACB8-98008E743771}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F40A764E-6293-4D78-ACB8-98008E743771}.Release|Any CPU.Build.0 = Release|Any CPU
 		{47478F66-8016-43BE-8B07-1CA73887FF28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47478F66-8016-43BE-8B07-1CA73887FF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47478F66-8016-43BE-8B07-1CA73887FF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -30,6 +36,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{47478F66-8016-43BE-8B07-1CA73887FF28} = {84766511-887A-481D-950E-A04526C055BF}
+		{29162515-A0DD-448F-AA1B-2955ADD6024D} = {4E1C6B56-7B05-448C-92B3-5A6DCF0CAA75}
+		{3F5E1E81-E4F5-4401-B9F6-07B69C35F379} = {6A0EAD87-8F57-48E9-88B0-7A6DFD0610F2}
+		{4E1C6B56-7B05-448C-92B3-5A6DCF0CAA75} = {6A0EAD87-8F57-48E9-88B0-7A6DFD0610F2}
+		{84766511-887A-481D-950E-A04526C055BF} = {6A0EAD87-8F57-48E9-88B0-7A6DFD0610F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {92297A43-6259-46BC-BA93-D510C0430D76}
