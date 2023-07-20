@@ -1,9 +1,9 @@
 ﻿using CursoUdemy.Domain;
 using MediatR;
 
-namespace CursoUdemy.Application.Features.Streamers.Commands
+namespace CursoUdemy.Application.Features.Streamers.Commands.CreateStreamer
 {
-    public class StreamerCommand : IRequest<int>
+    public class CreateStreamerCommand : IRequest<int>
     {
         public string Nombre { get; set; } = string.Empty;
 
