@@ -20,7 +20,7 @@ namespace CursoUdemy.Application.Features.Streamers.Commands.UpdateStreamer
             _logger = logger;
         }
 
-        public async Task<Unit> Handle(UpdateStreamerCommand request, CancellationToken cancellationToken)
+        public async Task Handle(UpdateStreamerCommand request, CancellationToken cancellationToken)
         {
             var streamerToUpdate = await _streamerRepository.GetByIdAsync(request.Id);
             if (streamerToUpdate == null)
@@ -35,13 +35,6 @@ namespace CursoUdemy.Application.Features.Streamers.Commands.UpdateStreamer
 
             _logger.LogInformation($"La operacion fue exitosa actualizando el streamer {request.Id}");
 
-            return Unit.Value;
-
-        }
-
-        Task IRequestHandler<UpdateStreamerCommand>.Handle(UpdateStreamerCommand request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
         }
     }
 }
