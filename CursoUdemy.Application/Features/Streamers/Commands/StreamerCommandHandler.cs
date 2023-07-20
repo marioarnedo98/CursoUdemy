@@ -50,7 +50,7 @@ namespace CursoUdemy.Application.Features.Streamers.Commands
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Errores enviando el email de {streamer.id}");
+                _logger.LogError($"Errores enviando el email de {streamer.Id}");
             }
 
             
