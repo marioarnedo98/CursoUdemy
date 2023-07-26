@@ -12,14 +12,12 @@ namespace CursoUdemy.Application.Features.Streamers.Commands.CreateStreamer
     {
         private readonly IStreamerRepository _streamerRepository;
         private readonly IMapper _mapper;
-        private readonly IEmailService _emailService;
         private readonly ILogger<CreateStreamerCommandHandler> _logger;
 
-        public CreateStreamerCommandHandler(IStreamerRepository streamerRepository, IMapper mapper, IEmailService emailService, ILogger<CreateStreamerCommandHandler> logger)
+        public CreateStreamerCommandHandler(IStreamerRepository streamerRepository, IMapper mapper, ILogger<CreateStreamerCommandHandler> logger)
         {
             _streamerRepository = streamerRepository;
             _mapper = mapper;
-            _emailService = emailService;
             _logger = logger;
         }
 
@@ -30,28 +28,9 @@ namespace CursoUdemy.Application.Features.Streamers.Commands.CreateStreamer
             var newStreamer = await _streamerRepository.AddAsync(streamerEntity);
             _logger.LogInformation($"Streamer {newStreamer.Id} fue creado correctamente");
 
-            await SendEmail(newStreamer);
+          
 
             return newStreamer.Id;
-
-        }
-
-        private async Task SendEmail(Streamer streamer)
-        {
-            var email = new Email
-            {
-                To = "marioarnedo1@gmail.com",
-                Body = "La compañia de streamer se creó correctamente",
-                Subject = "Mensaje de alerta"
-            };
-            try
-            {
-                await _emailService.SendEmail(email);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Errores enviando el email de {streamer.Id}");
-            }
 
 
         }

@@ -16,12 +16,15 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{3F5E1E81-E4F5-4401-B9F6-07B69C35F379}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4E1C6B56-7B05-448C-92B3-5A6DCF0CAA75}"
+	ProjectSection(SolutionItems) = preProject
+		CursoUdemy.Application\ApplicationServiceRegistration.cs = CursoUdemy.Application\ApplicationServiceRegistration.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{84766511-887A-481D-950E-A04526C055BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoUdemy.API", "CursoUdemy.API\CursoUdemy.API.csproj", "{C912707B-89BB-4372-B3DE-DE199A7FAFE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoUdemy.API", "CursoUdemy.API\CursoUdemy.API.csproj", "{C912707B-89BB-4372-B3DE-DE199A7FAFE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CursoUdemy.Application", "CursoUdemy.Application\CursoUdemy.Application.csproj", "{059DE4D6-0AA9-4193-94FC-21817FB9241D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CursoUdemy.Application", "CursoUdemy.Application\CursoUdemy.Application.csproj", "{059DE4D6-0AA9-4193-94FC-21817FB9241D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
