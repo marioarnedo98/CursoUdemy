@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CursoUdemy.Application\CursoUdemy.Application.csproj" />
     <ProjectReference Include="..\CursoUdemy.Data\CursoUdemy.Infraestructure.csproj" />
+    <ProjectReference Include="..\CursoUdemy.Identity\CursoUdemy.Identity.csproj" />
   </ItemGroup>
 
 </Project>

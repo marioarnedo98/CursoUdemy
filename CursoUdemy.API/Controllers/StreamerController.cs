@@ -2,6 +2,7 @@
 using CursoUdemy.Application.Features.Streamers.Commands.DeleteStreamer;
 using CursoUdemy.Application.Features.Streamers.Commands.UpdateStreamer;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
@@ -19,6 +20,7 @@ namespace CursoUdemy.API.Controllers
         }
 
         [HttpPost(Name = "CreateStreamer")]
+        [Authorize(Roles = "Administrador")]
         [ProducesResponseType((int) HttpStatusCode.OK)]
         public async Task<ActionResult<int>> CreateStreamer([FromBody]CreateStreamerCommand command)
         {
