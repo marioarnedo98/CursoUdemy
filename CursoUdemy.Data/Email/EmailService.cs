@@ -24,7 +24,7 @@ namespace CursoUdemy.Infrastructure.Email
             _logger = logger;
         }
 
-        public async Task<bool> SendEmail(Application.Models.Email email)
+        public async Task<bool> sendEmail(Application.Models.Email email)
         {
             var client = new SendGridClient(_emailSettings.ApiKey);
 

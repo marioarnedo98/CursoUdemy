@@ -5,6 +5,6 @@ namespace CursoUdemy.Application.Contracts.Infraestructure
 {
     public interface IEmailService
     {
-        Task<bool> SendEmail(Email email);
+        Task<bool> sendEmail(Email email);
     }
 }
